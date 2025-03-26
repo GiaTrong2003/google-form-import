@@ -1,118 +1,184 @@
 const puppeteer = require("puppeteer");
+const link =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdGyBBA_RqhG1zP9crEsyFn9ClUGO42QbBPFymh5grdtPP6ag/viewform";
 
 const xpath = [
   {
     cau1: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div[1]/label',
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div[2]/label',
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div[5]/label',
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div[4]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div/span/div/div[1]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div/span/div/div[2]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div/span/div/div[3]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div[1]/div/span/div/div[4]/label',
     ],
   },
   {
     cau2: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[2]/label',
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div/span/div/div[3]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div[1]/div/span/div/div[1]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div[1]/div/span/div/div[1]/label',
     ],
   },
   {
     cau3: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div/span/div/div[2]/label',
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div/span/div/div[2]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div[1]/div/span/div/div[1]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div[1]/div/span/div/div[2]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div[1]/div/span/div/div[3]/label',
     ],
   },
   {
     cau4: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div/span/div/div[1]/label',
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div/span/div/div[2]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div[1]/div/span/div/div[1]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div[1]/div/span/div/div[2]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div[1]/div/span/div/div[3]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div[1]/div/span/div/div[4]/label',
     ],
   },
   {
     cau5: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div/span/div/div[1]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div/span/div/div[1]/label',
       '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div/span/div/div[2]/label',
       '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div/span/div/div[3]/label',
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div/span/div/div[4]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div/span/div/div[4]/label',
     ],
   },
   {
     cau6: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/span/div/div[1]/label',
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/span/div/div[2]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/span/div/div[1]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/span/div/div[2]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/span/div/div[3]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/span/div/div[4]/label',
     ],
   },
   {
     cau7: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div/span/div/div[3]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div/span/div/div[3]/label',
       '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div/span/div/div[1]/label',
       '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div/span/div/div[2]/label',
     ],
   },
   {
     cau8: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[8]/div/div/div[2]/div/div[1]/div[2]/textarea',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[8]/div/div/div[2]/div/div/span/div/div[3]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[8]/div/div/div[2]/div/div/span/div/div[1]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[8]/div/div/div[2]/div/div/span/div/div[2]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[8]/div/div/div[2]/div/div/span/div/div[4]/label',
     ],
   },
   {
     cau9: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[9]/div/div/div[2]/div/div/span/div/div[5]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[9]/div/div/div[2]/div/div/span/div/div[1]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[9]/div/div/div[2]/div/div/span/div/div[2]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[9]/div/div/div[2]/div/div/span/div/div[3]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[9]/div/div/div[2]/div/div/span/div/div[4]/label',
     ],
   },
   {
     cau10: [
-      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[10]/div/div/div[2]/div/div[1]/div[2]/textarea',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[10]/div/div/div[2]/div/div/span/div/div[1]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[10]/div/div/div[2]/div/div/span/div/div[2]/label',
+    ],
+  },
+  {
+    cau11: [
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[11]/div/div/div[2]/div/div/span/div/div[1]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[11]/div/div/div[2]/div/div/span/div/div[2]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[11]/div/div/div[2]/div/div/span/div/div[3]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[11]/div/div/div[2]/div/div/span/div/div[4]/label',
+    ],
+  },
+  {
+    cau12: [
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[12]/div/div/div[2]/div/div/span/div/div[1]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[12]/div/div/div[2]/div/div/span/div/div[2]/label',
+    ],
+  },
+  {
+    cau13: [
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[13]/div/div/div[2]/div/div/span/div/div[1]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[13]/div/div/div[2]/div/div/span/div/div[2]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[13]/div/div/div[2]/div/div/span/div/div[3]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[13]/div/div/div[2]/div/div/span/div/div[4]/label',
+    ],
+  },
+  {
+    cau14: [
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[14]/div/div/div[2]/div/div/span/div/div[1]/label',
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[14]/div/div/div[2]/div/div/span/div/div[2]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[14]/div/div/div[2]/div/div/span/div/div[3]/label',
+    ],
+  },
+  {
+    cau15: [
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[15]/div/div/div[2]/div/div[1]/div[2]/textarea',
+    ],
+  },
+  {
+    cau16: [
+      '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[16]/div/div/div[2]/div/div/span/div/div[1]/label',
+      // '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[16]/div/div/div[2]/div/div/span/div/div[2]/label',
     ],
   },
 ];
 
 const responses = {
-  cau8: [
-    "Giúp kiểm soát chi tiêu, tránh tình trạng tiêu xài quá mức.",
-    "Hỗ trợ xây dựng kế hoạch tài chính dài hạn, tiết kiệm cho tương lai.",
-    "Giảm bớt căng thẳng tài chính, giúp người dùng cảm thấy an tâm hơn về tình hình tài chính cá nhân.",
-    "Quản lý tài chính cá nhân giúp tôi duy trì sự ổn định tài chính và tránh rơi vào tình trạng nợ nần.",
-    "Nó giúp tôi lập kế hoạch chi tiêu hợp lý, tiết kiệm cho các mục tiêu dài hạn như mua nhà hoặc nghỉ hưu.",
-    "Quản lý tài chính cá nhân cũng giúp tôi dễ dàng đối phó với những tình huống khẩn cấp mà không phải vay mượn.",
-    "Thông qua việc quản lý tài chính, tôi có thể theo dõi và kiểm soát các khoản chi tiêu để không vượt quá ngân sách.",
-    "Điều này giúp tôi cảm thấy an tâm hơn về tài chính và giảm căng thẳng liên quan đến tiền bạc.",
-  ],
-  cau10: [
-    "Tính năng phân tích chi tiêu, giúp theo dõi các khoản chi và phân loại chi tiêu hợp lý.",
-    "Cảnh báo khi chi tiêu vượt mức dự tính hoặc khi đạt mức mục tiêu tiết kiệm.",
-    "Gợi ý cách tiết kiệm, đầu tư hiệu quả.",
-    "Ứng dụng nên có tính năng theo dõi chi tiêu, giúp tôi phân loại các khoản chi và dễ dàng kiểm soát tài chính.",
-    "Tính năng cảnh báo khi chi tiêu vượt quá ngân sách đã đặt ra hoặc khi gần đạt được mục tiêu tiết kiệm sẽ rất hữu ích.",
-    "Ứng dụng nên đưa ra các gợi ý về cách tiết kiệm và đầu tư hiệu quả dựa trên thói quen chi tiêu của tôi.",
-    "Có thể kết nối với tài khoản ngân hàng và các dịch vụ thanh toán để tự động cập nhật giao dịch và số dư.",
-    "Tính năng phân tích và báo cáo chi tiết giúp tôi nhận ra các thói quen chi tiêu và cải thiện quản lý tài chính cá nhân.",
+  cau15: [
+    "Giao diện trang chủ cần trực quan hơn để người dùng dễ tìm kiếm dịch vụ.",
+    "Nên bổ sung bộ lọc theo giá, loại dịch vụ và địa điểm để khách hàng dễ dàng chọn lựa.",
+    "Cần cải thiện tốc độ tải trang, đặc biệt trên thiết bị di động.",
+    "Nên có phần đánh giá và bình luận từ khách hàng để tăng độ tin cậy.",
+    "Cần bổ sung tính năng đặt lịch hẹn linh hoạt theo từng khung giờ.",
+    "Thiếu thông tin chi tiết về nhân viên giúp việc, cần thêm hồ sơ năng lực.",
+    "Nên có phần giới thiệu ngắn gọn về quy trình làm việc để khách hàng dễ hiểu.",
+    "Thanh toán trực tuyến chưa hỗ trợ nhiều phương thức, nên bổ sung thêm.",
+    "Cần có chính sách hoàn tiền rõ ràng khi có vấn đề với dịch vụ.",
+    "Tính năng chat giữa khách hàng và nhân viên giúp việc cần cải thiện giao diện.",
+    "Thiếu hướng dẫn sử dụng cho người mới, có thể thêm video demo.",
+    "Trang web chưa hỗ trợ đa ngôn ngữ, nên có tiếng Anh và tiếng Việt.",
+    "Cần tối ưu hiển thị trên mobile, hiện tại một số phần bị vỡ giao diện.",
+    "Nên có thông báo nhắc nhở khi sắp đến lịch hẹn với nhân viên giúp việc.",
+    "Chưa có chương trình khuyến mãi hoặc mã giảm giá cho khách hàng mới.",
+    "Tính năng tìm kiếm chưa chính xác, cần cải thiện thuật toán lọc dữ liệu.",
+    "Thiết kế form đăng ký phức tạp, cần đơn giản hóa cho trải nghiệm tốt hơn.",
+    "Cần tích hợp bản đồ để hiển thị vị trí của nhân viên giúp việc gần nhất.",
+    "Thiếu điều khoản sử dụng rõ ràng, cần bổ sung trên trang web.",
+    "Nên có chính sách bảo hiểm hoặc cam kết an toàn cho khách hàng.",
+    "Hỗ trợ khách hàng chưa có phản hồi nhanh, cần cải thiện dịch vụ chăm sóc.",
+    "Nên có tính năng gợi ý dịch vụ theo lịch sử đặt trước của khách hàng.",
+    "Thiếu báo cáo tổng quan về số lượng đơn hàng, doanh thu cho quản trị viên.",
+    "Cần bổ sung tính năng chia sẻ đánh giá lên mạng xã hội để tăng độ phủ sóng.",
+    "Hệ thống đăng nhập chưa hỗ trợ đăng nhập bằng Google hoặc Facebook.",
   ],
 };
 
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function fillForm(page) {
-  await page.goto(
-    "https://docs.google.com/forms/d/e/1FAIpQLSdmr1bq4OHcLc2q6S-bigTZS0qJeLG2X7c4sxmROuN3CW-vIA/viewform"
-  ); // Địa chỉ trang bạn muốn truy cập
+  await page.goto(link);
 
   for (let i = 0; i < xpath.length; i++) {
     const currentObj = xpath[i];
-    const key = Object.keys(currentObj)[0]; // Lấy key (cau1, cau2, ...)
-    const currentXpath = currentObj[key]; // Lấy mảng XPath tương ứng với key
-    const responsesForQuestion = responses[key]; // Lấy câu trả lời cho câu hỏi
+    const key = Object.keys(currentObj)[0];
+    const currentXpath = currentObj[key];
+    const responsesForQuestion = responses[key];
 
-    // Nếu độ dài của mảng currentXpath lớn hơn 2, chọn ngẫu nhiên một phần tử trong mảng
+    // Select a random XPath if multiple are available
     const xpathToUse =
       currentXpath.length >= 2
-        ? currentXpath[Math.floor(Math.random() * currentXpath.length)] // Chọn ngẫu nhiên
-        : currentXpath[0]; // Nếu không, lấy phần tử đầu tiên
-    const responseKey = i < 8 ? "cau8" : "cau10"; // Chọn câu trả lời phù hợp cho từng câu hỏi
-    //
-    const randomIndex = Math.floor(
-      Math.random() * responses[responseKey].length
-    );
+        ? currentXpath[Math.floor(Math.random() * currentXpath.length)]
+        : currentXpath[0];
 
-    // Tìm phần tử theo XPath và điền thông tin vào form
+    // Fix: Use proper response key based on the question
+    const randomResponse =
+      key === "cau15" && responsesForQuestion
+        ? responsesForQuestion[
+            Math.floor(Math.random() * responsesForQuestion.length)
+          ]
+        : null;
+
+    // Fill the form with selected response
     await page.evaluate(
-      (xpath, responses, responseKey) => {
+      (xpath, response) => {
         const result = document.evaluate(
           xpath,
           document,
@@ -123,44 +189,129 @@ async function fillForm(page) {
         const element = result.singleNodeValue;
 
         if (element) {
-          // Kiểm tra nếu phần tử là <textarea> và nhập văn bản vào đó
-          if (element.tagName.toLowerCase() === "textarea") {
-            element.value = responses[responseKey]; // Nhập chuỗi vào textarea
-            element.dispatchEvent(new Event("input", { bubbles: true })); // Dispatch sự kiện input
+          if (element.tagName.toLowerCase() === "textarea" && response) {
+            element.value = response;
+            element.dispatchEvent(new Event("input", { bubbles: true }));
           } else if (element.tagName.toLowerCase() === "label") {
-            element.click(); // Nếu là <label>, click vào phần tử
+            element.click();
           }
         } else {
-          console.log("Không tìm thấy phần tử tại XPath:", xpath);
+          console.log("Element not found at XPath:", xpath);
         }
       },
-      xpathToUse, // Sử dụng xpath đã chọn ngẫu nhiên
-      responsesForQuestion, // Sử dụng câu trả lời cho câu hỏi
-      randomIndex // chỉ số (number) ngẫu nhiên tính theo độ dài của mảng responsesForQuestion
+      xpathToUse,
+      randomResponse
     );
+
+    // Add a small delay between interactions to appear more human-like
+    await delay(300);
   }
 
-  // Sử dụng CSS selector để tìm nút gửi
-  const submitButton = await page.$(".uArJ5e.UQuaGc.Y5sE8d.VkkpIf.QvWxOd");
+  // Improved submit button detection
+  const submitSelectors = [
+    ".uArJ5e.UQuaGc.Y5sE8d.VkkpIf.QvWxOd",
+    "span.NPEfkd.RveJvd.snByac",
+    'div[role="button"][jsname="M2UYVd"]',
+    ".freebirdFormviewerViewNavigationSubmitButton",
+  ];
+
+  let submitButton = null;
+
+  // Try each selector until we find the button
+  for (const selector of submitSelectors) {
+    submitButton = await page.$(selector);
+    if (submitButton) break;
+  }
+
+  // Try XPath approach if CSS selectors fail
+  if (!submitButton) {
+    const submitXPaths = [
+      '//span[contains(text(), "Submit")]',
+      '//span[contains(text(), "Gửi")]',
+      '//div[@role="button"][contains(., "Submit")]',
+    ];
+
+    for (const xpathSelector of submitXPaths) {
+      const elements = await page.$x(xpathSelector);
+      if (elements.length > 0) {
+        submitButton = elements[0];
+        break;
+      }
+    }
+  }
+
   if (submitButton) {
+    console.log("Submit button found, clicking...");
     await submitButton.click();
-    console.log("Đã nhấn nút gửi");
+    await delay(200);
   } else {
-    console.log("Không tìm thấy nút gửi");
+    console.log("Submit button not found. Trying alternative method...");
+    await page.keyboard.press("Enter");
+    await delay(200);
   }
 }
 
-// Chạy fillForm 15 lần
-async function runMultipleTimes() {
-  const browser = await puppeteer.launch({ headless: false });
-  for (let i = 0; i < 2; i++) {
-    console.log(`Chạy lần thứ ${i + 1}`);
-    const page = await browser.newPage();
-    await fillForm(page);
-    await new Promise((resolve) => setTimeout(resolve, 5000)); // Chờ 5 giây
-    await page.close();
+// Run form submissions with improved error handling
+async function runMultipleTimes(count = 30) {
+  let browser;
+  try {
+    browser = await puppeteer.launch({
+      headless: false,
+      args: ["--disable-extensions", "--disable-gpu"],
+      defaultViewport: { width: 1280, height: 800 },
+    });
+
+    let successCount = 0;
+
+    for (let i = 0; i < count; i++) {
+      console.log(`Run ${i + 1}/${count}`);
+      const page = await browser.newPage();
+
+      try {
+        // Set timeout for navigation to detect stuck pages
+        page.setDefaultNavigationTimeout(30000);
+
+        // Block unnecessary resources to improve speed
+        await page.setRequestInterception(true);
+        page.on("request", (request) => {
+          const resourceType = request.resourceType();
+          if (
+            resourceType === "image" ||
+            resourceType === "font" ||
+            resourceType === "media"
+          ) {
+            request.abort();
+          } else {
+            request.continue();
+          }
+        });
+
+        await fillForm(page);
+        successCount++;
+
+        // Random delay between form submissions (1-5 seconds)
+        const randomWait = 1000 + Math.floor(Math.random() * 4000);
+        await new Promise((resolve) => setTimeout(resolve, randomWait));
+      } catch (error) {
+        console.error(`Error in run ${i + 1}:`, error.message);
+      } finally {
+        await page.close();
+      }
+    }
+
+    console.log(
+      `Completed ${successCount}/${count} successful form submissions.`
+    );
+  } catch (error) {
+    console.error("Browser initialization error:", error);
+    await browser.close();
+  } finally {
+    if (browser) {
+      await browser.close();
+    }
   }
-  await browser.close();
 }
 
-runMultipleTimes();
+// Allow customizing number of submissions through command line argument
+const submissionCount = process.argv[2] ? parseInt(process.argv[2]) : 30;
+runMultipleTimes(submissionCount);
